@@ -1,0 +1,16 @@
+/var/lib/NetworkManager/timestamps
+/var/log/lightdm/seat0-greeter.log
+/tmp/assignment6status.txt
+/home/michael/scripts/logs/assignment6final.txt
+/home/michael/.mozilla/firefox/bgnivpoy.default-esr/broadcast-listeners.json
+/home/michael/.mozilla/firefox/bgnivpoy.default-esr/prefs.js
+/home/michael/.config/xfce4/panel/cpugraph-13.rc
+/home/michael/.config/xfce4/panel/genmon-15.rc
+/home/michael/.cache/mozilla/firefox/bgnivpoy.default-esr/startupCache/startupCache.8.little
+/home/michael/.cache/mozilla/firefox/bgnivpoy.default-esr/cache2/entries/16E2AE2C86A0962618F1D1EF69CE06A9DA9EA7C8
+/var/lib/NetworkManager/timestamps
+/home/michael/.mozilla/firefox/bgnivpoy.default-esr/broadcast-listeners.json
+/home/michael/.mozilla/firefox/bgnivpoy.default-esr/prefs.js
+/home/michael/.config/xfce4/panel/cpugraph-13.rc
+/home/michael/.config/xfce4/panel/genmon-15.rc
+/home/michael/.cache/mozilla/firefox/bgnivpoy.default-esr/cache2/entries/16E2AE2C86A0962618F1D1EF69CE06A9DA9EA7C8

@@ -1,0 +1,46 @@
+#!/bin/bash
+
+RUNTIME=0
+SECONDS=0
+
+SYSFILE=/var/log/syslog
+AUTHFILE=/var/log/auth.log
+LOGPATH=/home/michael/scripts/logs
+
+cp $SYSFILE $LOGPATH/sysloglocal.log
+cp $AUTHFILE $LOGPATH/authlocal.log
+
+ps -ef > $LOGPATH/process.log
+netstat -tulnp > $LOGPATH/port.log
+
+while :; do
+
+cp $SYSFILE $LOGPATH/sysloglocalnew.log
+cp $AUTHFILE $LOGPATH/authlocalnew.log
+ps -ef > $LOGPATH/processnew.log
+netstat -tulnp > $LOGPATH/portnew.log
+
+diff -u $LOGPATH/sysloglocalnew.log $LOGPATH/sysloglocal.log | grep '^-[^-]' | sed 's/^-//' >> /tmp/systemp.log
+
+diff -u $LOGPATH/authlocalnew.log $LOGPATH/authlocal.log | grep '^-[^-]' | sed 's/^-//' >> /tmp/authtemp.log
+
+diff -u $LOGPATH/processnew.log $LOGPATH/process.log | grep '^-[^-]' | sed 's/^-//' >> /tmp/processtemp.log
+
+diff -u $LOGPATH/portnew.log $LOGPATH/port.log | grep '^-[^-]' | sed 's/^-//' >> /tmp/porttemp.log
+
+cp $LOGPATH/sysloglocalnew.log $LOGPATH/sysloglocal.log
+cp $LOGPATH/authlocalnew.log $LOGPATH/authlocal.log
+cp $LOGPATH/processnew.log $LOGPATH/process.log
+cp $LOGPATH/portnew.log $LOGPATH/port.log
+
+rm $LOGPATH/sysloglocalnew.log
+rm $LOGPATH/authlocalnew.log
+rm $LOGPATH/processnew.log
+rm $LOGPATH/portnew.log
+
+UPDATED=$(date +"Logs updated at %c")
+echo $UPDATED
+sleep 60
+
+done
+
